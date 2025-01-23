@@ -1,9 +1,10 @@
 import random
 
 #stats
-health = 30
+health = 100
 sanity = 100
 happiness = 100
+speed = 100
 
 
 
@@ -64,7 +65,22 @@ def town():
         town()
     elif crossroad == "church":
         print("you enter the church to find out that there is a funeral service going on, you feel bad and decide to leave.")
+        global happiness
+        happiness_decrease = -10
+        happiness += happiness_decrease
+        print(f"your happiness is now {happiness}")
         town()
+    elif crossroad == "house2":
+        print("you enter the house and find: a chest, a map on the wall and a few pieces if gold")
+        decition = input("which one do you take? (chest/map/gold)").lower()
+        if decition == "chest":
+            print("you open the chest and find a sword, you take it.")
+            sword = True
+            town()
+        elif decition == "map":
+            print("you open the map and find a path to the cave, it is back the way you came from, you leave it alone")
+        elif decition == "gold":
+            print("you pick up 10 gold pieces")
 
 
 
